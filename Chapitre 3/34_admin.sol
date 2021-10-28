@@ -11,6 +11,7 @@ contract Admin is Ownable{
  
   function whitelist(address _address) public onlyOwner {
       require(!_whitelist[_address], "This address is already whitelisted !");
+      require(!_blacklist[_address], "This address is already blacklisted !");
       _whitelist[_address] = true;
       emit Whitelisted(_address);
   }
@@ -20,7 +21,8 @@ contract Admin is Ownable{
   }
   function blacklist(address _address) public onlyOwner {
       require(!_blacklist[_address], "This address is already blacklisted !");
-      _blacklist[_address] = false;
+      require(!_whitelist[_address], "This address is already whitelisted !");
+      _blacklist[_address] = true;
       emit Blacklisted(_address);
   }
  
