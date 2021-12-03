@@ -109,13 +109,13 @@ const value = trade.inputAmount.raw; // la valeur des ethers à envoyer
    {
 	   tokenIn: _tokenIn,
 	   tokenOut: _tokenOut,
-	   fee: _fee:
+	   fee: _fee,
 	   recipient: _recipient,
 	   deadline: _deadline,
 	   amountIn: _amountIn,
 	   amountOutMinimum: _amountOutMinimum,
 	   sqrtPriceLimitX96: _sqrtPriceLimitX96,
-   }
+   },
    { value, gasPrice: 20e9 }
  ); // envoyer la transaction avec les bons paramètres 
  console.log(`Transaction hash: ${tx.hash}`); // afficher le hash de la transaction 
