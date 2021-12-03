@@ -22,7 +22,7 @@ const _tokenOut = weth;
 const _fee = 500; // 0.05%
 const _recipient = "";
 const _deadline = Math.floor(Date.now() / 1000) + 60 * 20; // le délai après lequel le trade n’est plus valable 
-const _amountIn : trade.minimumAmountOut(slippageTolerance).raw; // minimum des tokens à récupérer avec une tolérance de 0.050%
+const _amountIn = trade.minimumAmountOut(slippageTolerance).raw; // minimum des tokens à récupérer avec une tolérance de 0.050%
 const _amountOutMin = 0; //Mettre à 0 de manière naive (ce sera forcément plus). En vrai, utiliser un oracle pour déterminer cette valeur précisément.
 const _sqrtPriceLimitX96 = 0; // Assurer le swap au montant exact
 
