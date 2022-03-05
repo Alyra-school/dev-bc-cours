@@ -1,7 +1,7 @@
 // mauvais
-function() payable { balances[msg.sender] += msg.value; }
-
-// bon
+fallback() external payable { balances[msg.sender] += msg.value; }
+ 
+// mieux
 function deposit() payable external { balances[msg.sender] += msg.value; }
-
-function() payable { require(msg.data.length == 0); emit LogDepositReceived(msg.sender); }
+ 
+fallback() external payable { emit LogDepositReceived(msg.sender); }
