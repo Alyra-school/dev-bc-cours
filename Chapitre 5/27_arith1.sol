@@ -7,7 +7,7 @@ contract Comptes {
   mapping (address => uint8) comptes;
 
   function borrow(uint8 _amount) public {
-    require (comptes[msg.sender]+_amount < max, 'tu retires trop');
+    require (comptes[msg.sender]+_amount <= max, 'tu retires trop');
 
     (bool sent, ) = msg.sender.call{value: _amount}("");
     require(sent, "Failed to send Ether");      
