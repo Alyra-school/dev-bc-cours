@@ -6,7 +6,6 @@ contract Bank {
    mapping (address => uint) private _balances;
  
    function deposit(uint _amount) public{
-       require(msg.sender != address(0), "You cannot deposit for the address zero");
        _balances[msg.sender] += _amount;
    }
    function transfer(address _recipient, uint _amount) public{
