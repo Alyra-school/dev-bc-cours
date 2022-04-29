@@ -5,7 +5,7 @@ contract Crowdsale {
     
   address public owner; // the owner of the contract
   address payable public escrow; // wallet to collect raised ETH
-  uint256 public savedBalance = 0; // Total amount raised in ETH
+  uint256 public savedBalance; // Total amount raised in ETH
   mapping (address => uint256) public balances; // Balances in incoming Ether
   // Event to record each time Ether is paid out
   event PayEther(
@@ -23,7 +23,8 @@ contract Crowdsale {
   receive() payable external {
       balances[msg.sender] += msg.value;
       savedBalance += msg.value;
-      escrow.call{value:msg.value};
+      (bool sent,) = escrow.call{value:msg.value}("");
+	  require(sent, "Failed to send ETH");
       emit PayEther(escrow, msg.value, block.timestamp);
   }
    // refund investisor
@@ -32,12 +33,12 @@ contract Crowdsale {
       address payable payee = payable(msg.sender);
       uint256 payment = balances[payee];
       require(payment != 0);
-      require(address(this).balance >= payment);
     
       savedBalance -= payment;
       balances[payee] = 0;
     
-      payee.call{value:payment};
+      (bool sent,) = payee.call{value:payment}("");
+	  require(sent, "Failed to send ETH");
       emit PayEther(payee, payment, block.timestamp);
   }
 }
