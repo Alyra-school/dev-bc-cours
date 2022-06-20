@@ -11,7 +11,7 @@ contract Crowdsale {
   }
  
   receive() external payable {
-       require(msg.value >= 0.1 ether, "you can't sent less than 0.1 ether");
+       require(msg.value >= 0.1 ether, "you can't send less than 0.1 ether");
    }
   
    function distribute(uint256 amount) public {
