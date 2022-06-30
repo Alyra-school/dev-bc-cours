@@ -5,6 +5,6 @@ contract Wallet{
 
 	// Activation of selfdestruct at addr address
   function activateSelfdestruct(address addr) public {
-      selfdestruct(addr);
+      selfdestruct(payable(addr));
   }
 }
