@@ -4,4 +4,6 @@ contract Whitelist {
        string name;
        uint age;   
    }
+   
+   Person public moi;
 }
