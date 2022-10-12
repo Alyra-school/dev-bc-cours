@@ -1,11 +1,13 @@
-// ERC20Token.sol
-// SPDX-License-Identifier: MIT
-pragma solidity 0.8.9;
- 
-import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
- 
-contract ERC20Token is ERC20 {  
-  constructor(uint256 initialSupply) ERC20("ALYRA", "ALY") {
-      _mint(msg.sender, initialSupply);
-  }
+// SPDX-License-Identifier: GPL-3.0
+
+pragma solidity 0.8.13;
+
+import "../node_modules/@openzeppelin/contracts/token/ERC20/ERC20.sol";
+
+contract MyToken is ERC20 {
+    
+    constructor(uint initialSupply) ERC20("Alyra","ALY"){
+        _mint(msg.sender, initialSupply);
+    }
+
 }
