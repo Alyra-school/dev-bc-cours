@@ -1,4 +1,4 @@
-pragma solidity 0.8.9;
+pragma solidity 0.8.17;
  
 contract SimpleStorage {
    uint data; //Cette variable est intialisé avec une valeure précise
