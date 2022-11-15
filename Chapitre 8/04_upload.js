@@ -2,7 +2,7 @@ require('dotenv').config();
 const key = process.env.PINATA_KEY;
 const secret = process.env.PINATA_SECRET;
 const pinataSDK = require('@pinata/sdk');
-const pinata = pinataSDK(key, secret);
+const pinata = new pinataSDK(key, secret);
 const fs = require('fs');
 const readableStreamForFile = fs.createReadStream('image.png');
 
