@@ -5,7 +5,9 @@ require("@nomicfoundation/hardhat-toolbox");
 require("dotenv/config");
 require("hardhat-gas-reporter");
 require("solidity-coverage");
-require("@nomicfoundation/hardhat-verify"); // /!\ A AJOUTER /!\
+ // /!\ 
+require("@nomicfoundation/hardhat-verify");
+ // /!\ 
 
 /* Ces lignes récupèrent les variables d'environnement à partir du fichier .env de votre projet, 
 fournissant ainsi des valeurs pour les URL des nœuds de blockchain, la clé privée du compte et 
@@ -35,13 +37,14 @@ module.exports = {
   },
   // Active le rapporteur de gaz (gas reporter) pour afficher les coûts de gaz 
   // lors des déploiements et des transactions.
-  gasReporter: { // /!\\ A AJOUTER /!\\
-    enabled: true, // /!\\ A AJOUTER /!\\
-  }, // /!\\ A AJOUTER /!\\
-  // Permet de configurer la vérifications sur Etherscan
+  gasReporter: {
+    enabled: true,
+  }, 
+  // /!\  Permet de configurer la vérifications sur Etherscan
   etherscan: {
     apiKey: ETHERSCAN_API_KEY,
   },
+   // /!\ 
   // Configure les compilateurs Solidity utilisés par Hardhat. 
   // Dans cet exemple, la version "0.8.19" est spécifiée.
   solidity: {
