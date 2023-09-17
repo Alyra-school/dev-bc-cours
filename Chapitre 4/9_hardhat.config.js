@@ -1,3 +1,12 @@
+/* Ces lignes importent les modules nécessaires à partir des packages installés dans votre projet. 
+Ces modules étendent les fonctionnalités de Hardhat pour faciliter diverses tâches telles que 
+la gestion de la configuration, la génération de rapports de gaz et la couverture de code. */
+require("@nomicfoundation/hardhat-toolbox");
+require("dotenv/config");
+require("hardhat-gas-reporter");
+require("solidity-coverage");
+require("@nomicfoundation/hardhat-verify"); // /!\ A AJOUTER /!\
+
 /* Ces lignes récupèrent les variables d'environnement à partir du fichier .env de votre projet, 
 fournissant ainsi des valeurs pour les URL des nœuds de blockchain, la clé privée du compte et 
 la clé API d'Etherscan (si elles sont définies). Les || "" assurent que les valeurs sont initialisées 
