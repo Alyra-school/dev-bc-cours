@@ -11,3 +11,10 @@ async function main() {
  `simpleStorage deployed to ${simpleStorage.target}`
  );
 }
+
+// Vous appelez la fonction 'main' pour exécuter le déploiement du contrat. 
+// Si une erreur se produit, elle est capturée et affichée dans la console.
+main().catch((error) => {
+  console.error(error);
+  process.exitCode = 1;
+});
