@@ -5,6 +5,12 @@ contract Whitelist {
    mapping(address=> bool) whitelist;
    event Authorized(address _address); // Event
 
+// pour initialiser le contrat avec le deployeur comme premier membre whitelisté:
+constructor() {
+  whitelist[msg.sender]= true;
+}
+ 
+
     modifier check(){
         require (whitelist[msg.sender]==true, "you are not authorized");
         _;
