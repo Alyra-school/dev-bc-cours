@@ -1,9 +1,12 @@
 //Admin.sol
 // SPDX-License-Identifier: MIT
 pragma solidity 0.8.9;
-import "https://github.com/OpenZeppelin/openzeppelin-contracts/contracts/access/Ownable.sol";
+import "https://github.com/OpenZeppelin/openzeppelin-contracts/blob/master/contracts/access/Ownable.sol";
 
 contract Admin is Ownable{
+
+  constructor() Ownable(msg.sender){  }
+
   mapping(address=> bool) private _whitelist;
   mapping(address=> bool) private _blacklist;
   event Whitelisted(address _address);
